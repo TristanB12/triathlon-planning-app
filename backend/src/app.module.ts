@@ -6,17 +6,30 @@ import { AuthModule } from './auth/auth.module';
 import { UsersService } from './users/users.service';
 import { UsersController } from './users/users.controller';
 import { UsersModule } from './users/users.module';
-import { ProjectsModule } from './projects/projects.module';
+import { IntegrationsModule } from './integrations/integrations.module';
+import { ActivitiesModule } from './activities/activities.module';
+import { OpenaiModule } from './openai/openai.module';
+import { GoalsModule } from './goals/goals.module';
+import { BullModule } from '@nestjs/bull';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    BullModule.forRoot({
+      redis: {
+        host: 'localhost',
+        port: 6379,
+      },
+    }),
     PrismaModule,
     AuthModule,
     UsersModule,
-    ProjectsModule,
+    IntegrationsModule,
+    ActivitiesModule,
+    OpenaiModule,
+    GoalsModule,
   ],
   providers: [PrismaService, UsersService],
   controllers: [UsersController],

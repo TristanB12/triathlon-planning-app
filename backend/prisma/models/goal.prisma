@@ -1,0 +1,22 @@
+model Goal {
+  id     Int  @id @default(autoincrement())
+
+  name String
+  current Boolean @default(false)
+  distance_type TriathlonDistance
+
+  start_at DateTime @default(now())
+  end_at DateTime
+
+  ai_response_id String
+
+  user_id Int
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+enum TriathlonDistance {
+  SPRINT
+  OLYMPIC
+  HALF_IRONMAN
+  IRONMAN
+}

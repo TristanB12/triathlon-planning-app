@@ -4,10 +4,36 @@
 h1, h2, p
   color: #343434
 
-h1, h2
-  font-family: 'Lato', sans-serif
+h1
+  font-family: "Playfair Display", serif
+
+*
+  font-family: 'Nunito', sans-serif
 
 p, span, div
   font-size: map-get($body1, size)
   font-weight: map-get($body1, weight)
   letter-spacing: map-get($body1, spacing)
+
+
+// class overriding
+.rounded-borders
+  border-radius: 16px !important
+
+
+// custom classes
+.rounded-borders-sm
+    border-radius: 8px !important
+.rounded-borders-md
+    border-radius: 12px !important
+
+
+// links
+a
+  text-decoration: none
+  color: inherit
+
+a.q-card
+  text-decoration: none
+  color: inherit
+  display: block

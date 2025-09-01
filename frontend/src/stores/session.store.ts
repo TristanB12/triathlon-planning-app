@@ -4,6 +4,7 @@ import { LocalStorage } from 'quasar';
 import { AuthClient } from '../api';
 import type { CurrentUser, LoginBody, RegisterBody } from '../api/types/auth.type';
 import { setAuthorizationHeader } from '../api/utils/set-authorization-header';
+import { useGoalsStore } from './goals.store';
 
 export const useSessionStore = defineStore('session', {
   state: () => ({
@@ -64,7 +65,10 @@ export const useSessionStore = defineStore('session', {
 
     },
     async startApp() {
+      const goalsStore = useGoalsStore();
+
       this.user = await AuthClient.getMe();
+      await goalsStore.fetchGoals();
     }
   },
 });

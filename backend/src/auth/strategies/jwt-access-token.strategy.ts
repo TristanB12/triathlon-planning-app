@@ -21,6 +21,7 @@ export class JwtAccessTokenStrategy extends PassportStrategy(Strategy, 'jwt') {
     try {
       const user = await this.prisma.user.findUnique({
         where: { email: payload.email },
+        omit: { password: true, refresh_token: true },
       });
 
       if (!user) {

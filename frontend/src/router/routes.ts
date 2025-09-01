@@ -22,7 +22,34 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
+    children: [
+      {
+        path: '',
+        redirect: '/calendar',
+      },
+      {
+        path: '/calendar',
+        name: 'Calendar',
+        component: () => import('pages/CalendarPage.vue'),
+      },
+      {
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: () => import('pages/DashboardPage.vue'),
+      },
+      {
+        path: '/goals',
+        name: 'Goals',
+        component: () => import('pages/GoalsPage.vue'),
+        children: [
+          {
+            path: ':goalId/edit',
+            name: 'GoalsEdit',
+            component: () => import('pages/GoalsPage.vue'),
+          }
+        ]
+      }
+    ],
   },
 
   // Always leave this as last one,

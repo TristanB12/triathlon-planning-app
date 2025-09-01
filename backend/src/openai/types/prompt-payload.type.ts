@@ -1,0 +1,1 @@
+export type PromptVariables = { [key: string]: string };

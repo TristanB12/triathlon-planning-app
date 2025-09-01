@@ -43,6 +43,7 @@ export class AuthService {
     try {
       dto.password = this.hashData(dto.password);
 
+      console.log(this.prisma)
       const user = await this.prisma.user.create({ data: dto });
       const tokens = await this.createTokens(user);
 

@@ -1,0 +1,20 @@
+model Integration {
+  id     Int  @id @default(autoincrement())
+
+  provider String
+  provider_user_id String?
+
+  access_token String?
+  refresh_token String?
+  expires_at DateTime?
+
+  state String?
+
+  active Boolean @default(false)
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user_id Int
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}

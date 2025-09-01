@@ -7,14 +7,15 @@ export class UsersService {
 
   async findOne(id: number) {
     try {
-      const user = await this.prisma.user.findUnique({
+      return await this.prisma.user.findUnique({
         where: {
           id: id,
         },
+        omit: {
+          password: true,
+          refresh_token: true
+        }
       });
-      delete user.password;
-      delete user.refresh_token;
-      return user;
     } catch (error) {
       throw new Error(error);
     }

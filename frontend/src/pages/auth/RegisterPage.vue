@@ -1,6 +1,6 @@
 <template>
   <div class="register-form">
-    <h1 class="q-my-sm">Create a new account</h1>
+    <h5 class="q-my-sm">Create a new account</h5>
     <p>Register to access your admin dashboard!</p>
 
     <QForm
@@ -43,7 +43,7 @@
         @icon-right-click="isPasswordVisible = !isPasswordVisible"
         :rules="[(v: string) => isRequired(v) || 'Password is required']"
       />
-      <BPrimaryButton
+      <BButtonPrimary
         type="submit"
         label="Create my account"
         rounded
@@ -59,7 +59,7 @@
 
 <script setup lang="ts">
 import { QForm, useQuasar } from 'quasar';
-import BPrimaryButton from 'src/components/core/BPrimaryButton.vue';
+import BButtonPrimary from 'src/components/core/BButtonPrimary.vue';
 import BInput from 'src/components/core/BInput.vue';
 import { reactive, ref } from 'vue';
 import { isEmail, isRequired } from 'src/helpers/validation';

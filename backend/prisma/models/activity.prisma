@@ -1,0 +1,35 @@
+model Activity {
+  id     Int  @id @default(autoincrement())
+
+  name String
+  description String?
+  status ActivityStatus @default(PLANNED)
+  sport_type SportType
+
+  planned_on DateTime
+  estimated_duration Int
+
+  start_at DateTime?
+  end_at DateTime?
+  distance Float
+
+  external_source_id String?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  user_id Int
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+enum ActivityStatus {
+  PLANNED
+  COMPLETED
+  CANCELLED
+}
+
+enum SportType {
+  RUNNING
+  CYCLING
+  SWIMMING
+}

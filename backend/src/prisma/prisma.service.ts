@@ -1,16 +1,14 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Type } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { PrismaClient } from '@prisma/client';
+import { PrismaProvider } from './prisma.provider';
+
+
+type ExtendedPrisma = ReturnType<PrismaProvider['withExtensions']>;
 
 @Injectable()
-export class PrismaService extends PrismaClient {
-  constructor(config: ConfigService) {
-    super({
-      datasources: {
-        db: {
-          url: config.get('DATABASE_URL'),
-        },
-      },
-    });
+export class PrismaService extends (PrismaProvider as unknown as { new (): ExtendedPrisma }) {
+  constructor() {
+    super();
+    Object.assign(this, new PrismaProvider().withExtensions());
   }
 }

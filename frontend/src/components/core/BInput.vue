@@ -12,7 +12,10 @@
       <QIcon :name="iconLeft" />
     </template>
 
-    <template v-if="iconRight" v-slot:append>
+    <template v-if="$slots.append" #append>
+      <slot name="append" />
+    </template>
+    <template v-else-if="iconRight" v-slot:append>
       <QIcon
         :name="iconRight"
         @click="manageEmitIconRightClick"

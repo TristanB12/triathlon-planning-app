@@ -1,0 +1,32 @@
+model User {
+  id     Int  @id @default(autoincrement())
+
+  first_name String
+  last_name  String
+
+  email      String @unique
+  password   String
+
+  refresh_token String? @unique
+
+  services Integration[]
+  activities Activity[]
+  goals Goal[]
+
+  // Data relative to athlete's profile
+  birth_date DateTime?
+  swim_level SportLevel?
+  run_level SportLevel?
+  bike_level SportLevel?
+  number_days_available_per_week Int?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+}
+
+enum SportLevel {
+  NEW
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}

@@ -1,6 +1,6 @@
 <template>
   <div class="login-form">
-    <h1 class="q-my-sm">Log in to your account</h1>
+    <h5 class="q-my-sm">Log in to your account</h5>
     <p>Welcome back!</p>
 
     <QForm
@@ -34,7 +34,7 @@
         />
         <a href="#" class="text-primary">Forgot password?</a>
       </div>
-      <BPrimaryButton
+      <BButtonPrimary
         type="submit"
         label="Log in"
         rounded
@@ -50,7 +50,7 @@
 
 <script setup lang="ts">
 import { QCheckbox, QForm, useQuasar } from 'quasar';
-import BPrimaryButton from 'src/components/core/BPrimaryButton.vue';
+import BButtonPrimary from 'src/components/core/BButtonPrimary.vue';
 import BInput from 'src/components/core/BInput.vue';
 import { ref } from 'vue';
 import { isEmail, isRequired } from 'src/helpers/validation';

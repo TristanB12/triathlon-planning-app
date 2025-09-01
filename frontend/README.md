@@ -1,6 +1,6 @@
-# Adminify (adminify)
+# Curva (curva)
 
-An admin dashboard that can connect to databases
+An app that helps triathletes to plan their trainings.
 
 ## Install the dependencies
 ```bash

@@ -6,7 +6,7 @@
           <div>
             <span class="row items-center">
               <QImg src="~assets/logo.svg" width="32px" height="32px" />
-              <h2 class="q-pl-md">Adminify</h2>
+              <h1 class="q-ma-none q-pl-md text-weight-medium">Tripl.</h1>
             </span>
   
             <RouterView />
