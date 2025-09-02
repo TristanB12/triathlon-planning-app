@@ -11,7 +11,7 @@ const props = defineProps<{
   duration: number
 }>()
 
-const durationInMinutes = computed(() => props.duration / 60)
+const durationInMinutes = computed(() => Math.round(props.duration / 60))
 </script>
 
 <style scoped lang="sass">

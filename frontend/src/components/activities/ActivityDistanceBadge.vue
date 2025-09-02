@@ -17,8 +17,11 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const distanceInKilometers = computed(() => props.distance / 1000);
+
 const distanceString = computed(() => {
-  const convertedDistance = props.unit === 'km' ? distanceInKilometers.value : props.distance;
+  let convertedDistance = props.unit === 'km' ? distanceInKilometers.value : props.distance;
+
+  convertedDistance = Math.round(convertedDistance);
   return `${convertedDistance} ${props.unit}`;
 });
 </script>
