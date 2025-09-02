@@ -1,6 +1,6 @@
 <template>
   <QPage>
-    <div class="row q-gutter-md">
+    <div class="row q-col-gutter-md">
       <GoalCard
         class="col-3"
         v-for="goal in goalsStore.goals"
@@ -26,17 +26,17 @@ const modalsStore = useModalsStore();
 
 watch(() => route.params.goalId, newGoalId => {
   if (newGoalId) {
-    openGoalEditModal(newGoalId as string);
+    openGoalEditModal(Number(newGoalId));
   }
 })
 
 onMounted(() => {
   if (route.params.goalId) {
-    openGoalEditModal(route.params.goalId as string);
+    openGoalEditModal(Number(route.params.goalId));
   }
 });
 
-function openGoalEditModal(goalId: string) {
+function openGoalEditModal(goalId: number) {
   modalsStore.open(ModalType.GoalEditModal, {
       props: {
         goalId

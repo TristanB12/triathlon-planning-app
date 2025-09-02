@@ -4,7 +4,7 @@
     @update:model-value="emit('update:model-value', $event)"
     show-if-above
     bordered
-    :width="250"
+    :width="220"
   >
     <QList>
       <QItem

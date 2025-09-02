@@ -3,7 +3,7 @@
     <MCalendarWeekViewDay
       class="col text-center"
       v-for="day in days"
-      :key="day.toISOString"
+      :key="day.toString()"
       :day="day"
       :events="getEventsForDay(day)"
       @create-event="manageEventCreation"

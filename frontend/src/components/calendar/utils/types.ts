@@ -23,5 +23,6 @@ export interface CalendarEvent {
 
 export enum CalendarView {
   WEEK = 'week',
+  WEEK_TASKS = 'week_tasks',
   MONTH = 'month',
 }

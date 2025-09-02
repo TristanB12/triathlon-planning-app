@@ -24,6 +24,7 @@ import type { CalendarEvent, CalendarOptions } from './utils/types';
 import { CalendarView } from './utils/types';
 import MCalendarWeekView from './views/week/MCalendarWeekView.vue';
 import { addDays, subDays } from 'date-fns';
+import MCalendarWeekTasksView from 'src/components/calendar/views/week-tasks/MCalendarWeekTasksView.vue';
 
 const props = defineProps<{
   options: CalendarOptions
@@ -36,6 +37,8 @@ const calendarViewComponent = computed(() => {
   switch (props.options.view) {
     case CalendarView.WEEK:
       return MCalendarWeekView;
+    case CalendarView.WEEK_TASKS:
+      return MCalendarWeekTasksView;
     default:
       return MCalendarWeekView;
   }
